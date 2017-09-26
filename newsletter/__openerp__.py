@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -21,17 +21,19 @@
 ##############################################################################
 {
     'name': 'Newsletters',
-    'version': '8.0.2.0.0',
+    'version': '8.0.3.0.0',
     'author': 'Therp BV,Odoo Community Association (OCA)',
     'website': 'http://www.therp.nl',
     "category": "Newsletter",
     'summary': 'Send newsletters to customers, employees or other entities',
     "depends": [
+        'report',
         'email_template',
         'web_ckeditor4',
         'web',
     ],
     'data': [
+        "reports/email_template_preview.xml",
         "view/qweb.xml",
         'data/ir_module_cateogry.xml',
         'security/res_groups.xml',

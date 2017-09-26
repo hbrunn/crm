@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <report id="report_email_template_preview"
+            string="Preview newletter"
+            model="email_template.preview"
+            name="newsletter.report_email_template_preview_qweb"
+            report_type="qweb-pdf"
+        />
+    </data>
+</openerp>

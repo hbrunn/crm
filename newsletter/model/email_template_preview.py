@@ -20,3 +20,13 @@ class EmailTemplatePreview(models.Model):
         mail_values.pop('email_bcc', None)
         mail_values['auto_delete'] = not tools.config['test_enable']
         self.env['mail.mail'].create(mail_values).send()
+
+    @api.multi
+    def newsletter_print(self):
+        action = self.env['report'].get_action(
+            self, 'newsletter.report_email_template_preview_qweb',
+        )
+        # what we see in the preview is never written because the fields are
+        # readonly
+        self.write(self.on_change_res_id(int(self.res_id))['value'])
+        return action

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-	<data>
+    <data>
         <!-- Email Template Preview -->
         <record model="ir.ui.view" id="email_template_preview_form">
             <field name="name">email_template.preview.form</field>
@@ -24,11 +24,19 @@
                     <footer>
                         <field name="newsletter_test_recipient" placeholder="you@mail.com" required="True" widget="email" style="display: inline-block" />
                         <button type="object" name="newsletter_test_send" string="Send" class="oe_highlight" />
+                        <button type="object" name="newsletter_print" string="Print"/>
                         or
                         <button special="cancel" string="Close" class="oe_link"/>
                     </footer>
                 </form>
             </field>
         </record>
-	</data>
+        <template id="report_email_template_preview_qweb">
+            <t t-call="report.internal_layout">
+                <div class="page" t-foreach="docs" t-as="o">
+                    <t t-raw="o.body_html" />
+                </div>
+            </t>
+        </template>
+    </data>
 </openerp>

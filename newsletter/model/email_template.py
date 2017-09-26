@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -19,13 +19,12 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-from openerp.osv.orm import Model
+from openerp import models
 from openerp.addons.email_template.email_template import mako_template_env,\
     format_tz
 
 
-class email_template(Model):
+class email_template(models.Model):
     _inherit = 'email.template'
 
     def render_template_batch(self, cr, uid, template, model, res_ids,
